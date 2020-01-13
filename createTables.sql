@@ -1,29 +1,3 @@
-create table Naklejki
-(
-	id_legitymacji int not null,
-	od_dnia date not null,
-	do_dnia date not null
-)
-go
-
-create table Legitymacje
-(
-	id int identity
-		constraint Legitymacje_pk
-			primary key nonclustered,
-	id_studenta int not null,
-	numer_legitymacji varchar(10) not null,
-	data_wydania date not null
-)
-go
-
-create table Studenci
-(
-	id_osoby int not null,
-	data_urodzenia date not null
-)
-go
-
 create table Osoby
 (
 	id int identity
@@ -167,10 +141,3 @@ create table Zapisy_warsztatu
 	id_zapisu_dnia int not null
 )
 go
-
-
-
-
-
-
-

@@ -79,3 +79,42 @@ alter table Platnosci
 		foreign key (id_rezerwacji) references Rezerwacje_konferencji
 go
 
+alter table Ceny 
+	add constraint CenaWiekszaOdZera 
+		check (cena >= 0) 
+go
+
+alter table Dni_konferencji 
+	add constraint Dni_LiczbaMiejscWiekszaOdZera 
+		check (miejsca > 0) 
+go
+
+alter table Konferencje 
+	add constraint ZnizkaStudencka 
+		check (znizka_studencka between 0 and 1) 
+go
+
+alter table Rezerwacje_dnia 
+	add constraint LiczbaMiejscWiekszaOdZera 
+		check (miejsca > 0 or miejsca_studentow > 0) 
+go
+
+alter table Rezerwacje_warsztatu 
+	add constraint Rezerwacje_warsztatu_LiczbaMiejscWiekszaOdZera 
+		check (miejsca > 0) 
+go
+
+alter table Warsztaty 
+	add constraint Warsztaty_LiczbaMiejscWiekszaOdZera 
+		check (miejsca > 0) 
+go
+
+alter table Warsztaty 
+	add constraint Warsztaty_PoczatekKoniec 
+		check (poczatek < koniec) 
+go
+
+alter table Warsztaty 
+	add constraint Warsztaty_Cena 
+		check (cena >= 0) 
+go

@@ -102,7 +102,7 @@ create table Ceny
 (
 	od_dnia date not null,
 	cena decimal(19,4) not null,
-	id_konferencji int not null
+	id_dnia_konferencji int not null
 )
 go
 

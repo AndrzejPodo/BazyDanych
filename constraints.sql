@@ -1,6 +1,6 @@
 alter table Ceny
 	add constraint Ceny_Dni_konferencji_id_fk
-		foreign key (id_konferencji) references Dni_konferencji
+		foreign key (id_dnia_konferencji) references Dni_konferencji
 go
 
 alter table Dni_konferencji

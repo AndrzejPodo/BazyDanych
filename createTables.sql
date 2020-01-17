@@ -4,7 +4,8 @@ create table Osoby
 		constraint Osoby_pk
 			primary key nonclustered,
 	imie varchar(30) not null,
-	nazwisko varchar(30) not null
+	nazwisko varchar(30) not null,
+	email varchar(50)
 )
 go
 
@@ -14,6 +15,7 @@ create table Klienci
         constraint Klienci_pk
             primary key nonclustered,
 	id_osoby int,
+	telefon varchar(12) not null,
 	id_firmy int
 )
 go
@@ -24,7 +26,6 @@ create table Firmy
 		constraint Firmy_pk
 			primary key nonclustered,
 	nazwa text not null,
-	telefon varchar(12) not null,
 	email varchar(50) not null
 )
 go

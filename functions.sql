@@ -61,3 +61,14 @@ returns decimal(19, 4) as begin
 end
 go
 
+create function Dzien_liczba_wolnych_miejsc (@id_dnia int)
+returns int as begin
+    return (select top 1 miejsca from Dni_konferencji where id = @id_dnia) - (select count(*) from Uczestnicy_dni_konferencji where id_dnia = @id_dnia)
+end
+go
+
+create function Warsztat_liczba_wolnych_miejsc (@id_warsztatu int)
+returns int as begin
+    return (select top 1 miejsca from Warsztaty where id = @id_warsztatu) - (select count(*) from Uczestnicy_warsztatow where id_warsztatu = @id_warsztatu)
+end
+go

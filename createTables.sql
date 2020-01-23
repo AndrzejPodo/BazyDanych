@@ -1,3 +1,5 @@
+
+
 create table Osoby
 (
 	id int identity
@@ -7,7 +9,10 @@ create table Osoby
 	nazwisko varchar(30) not null,
 	email varchar(50)
 )
+create unique index Osoby_email_uindex
+	on Osoby (email)
 go
+
 
 create table Klienci
 (
@@ -28,6 +33,8 @@ create table Firmy
 	nazwa text not null,
 	email varchar(50) not null
 )
+create unique index Firmy_email_uindex
+	on Firmy (email)
 go
 
 create table Rezerwacje_konferencji
@@ -52,6 +59,9 @@ create table Platnosci
 	wartosc decimal(19,4) not null
 )
 go
+alter table Platnosci add default getdate() for dzien
+go
+
 
 create table Rezerwacje_dnia
 (
@@ -142,3 +152,4 @@ create table Zapisy_warsztatu
 	id_zapisu_dnia int not null
 )
 go
+
